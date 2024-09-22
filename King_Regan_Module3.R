@@ -25,10 +25,10 @@ anole.log <- anole2 %>%
 
 ##Objective 2
 # Simple linear model: hindlimb ~ perch height
-lm_height <- lm(HTotal ~ PH, data = anole.log)
+lm_height <- lm(HTotal ~ SVL + PH, data = anole.log)
 
 # Simple linear model: hindlimb ~ perch diameter
-lm_diameter <- lm(HTotal ~ ArbPD, data = anole.log)
+lm_diameter <- lm(HTotal ~ SVL + ArbPD, data = anole.log)
 
 ##Objective 3
 
@@ -42,10 +42,12 @@ ggplot(anole.log, aes(x = Ecomorph, y = resid_height)) +
   geom_boxplot() +
   labs(title = "Residuals of Hindlimb-SVL vs Perch Height", y = "Residuals", x = "Ecomorph")
 
+
 # Plot residuals for perch diameter
 ggplot(anole.log, aes(x = Ecomorph, y = resid_diameter)) +
   geom_boxplot() +
   labs(title = "Residuals of Hindlimb-SVL vs Perch Diameter", y = "Residuals", x = "Ecomorph")
+
 
 ##Objective 4
 
