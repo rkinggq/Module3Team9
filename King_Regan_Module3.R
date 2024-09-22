@@ -56,7 +56,7 @@ pgls_height <- gls(HTotal ~ PH,
       correlation = corBrownian(1, phy = tree, form = ~Species),
       data = anole.log)
 
-##fit the mocel for hindlimb ~ perch diameter 
+##fit the model for hindlimb ~ perch diameter 
 pgls_diameter <- gls(HTotal ~ ArbPD, 
                      correlation = corBrownian(1, phy = tree, form = ~ Species), 
                      data = anole.log)
@@ -65,6 +65,7 @@ pgls_diameter <- gls(HTotal ~ ArbPD,
 pgls_both <- gls(HTotal ~ PH + ArbPD, 
                  correlation = corBrownian(1, phy = tree, form = ~ Species), 
                  data = anole.log)
+
 
 ##Objective 5
 
@@ -89,6 +90,7 @@ AIC_summary <- data.frame(Model = c("Perch Height", "Perch Diameter", "Both Cova
                           AICw = AICw_values)
 
 print(AIC_summary)
+## perch diameter has the lowest AICc vaule 
 
 ##Objective 6
 
@@ -104,5 +106,12 @@ ggplot(anole.log, aes(x = Ecomorph, y = resid_best, fill = Ecomorph)) +
        x = "Ecomorph") +
   theme_minimal() +
   scale_fill_viridis_d()  # Using viridis color scale for better color visibility
+
+
+
+
+
+
+
 
 
